@@ -1,0 +1,75 @@
+﻿
+@{
+    ViewData["Title"] = "Khám bệnh ngoại trú";
+}
+
+
+<style>
+    td{
+       font-size:1.7vh;
+    }
+</style>
+<h3>KHÁM BỆNH NGOẠI TRÚ</h3>
+
+<div class="row">
+    <div class="col-4">
+        <form>
+            <label class="text-primary font-weight-bold">DS. Bệnh nhân</label>
+            <div class="form-group">
+                 
+                <label>Trạng thái</label>
+                <select class="form-control" id="selectSate">
+                    <option>Chờ khám</option>
+                    <option>Trốn về</option>
+                    <option>Mất tiêu</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="Date">Ngày</label>
+                <input class="form-control" type="text" value="@DateTime.Now" />
+            </div>
+           
+            <table class="table table-bordered">
+                <thead class="thead-dark font-weight-light" style="font-size:small">
+                    <tr>
+                        <th>STT</th>
+                        <th>Họ tên</th>
+                        <th>N.S</th>
+                        <th>G. Tính</th>
+                        <th>Ư. Tiên</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Trương Văn Hồng Quân</td>
+                        <td>24/08/1999</td>
+                        <td>Nam</td>
+                        <td class="text-lg-center"><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Văn Trương Quân Hồng</td>
+                        <td>28/04/1999</td>
+                        <td>Nữ</td>
+                        <td class="text-lg-center"><input type="checkbox" /></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Hồng Trương Quân Văn</td>
+                        <td>24/04/1999</td>
+                        <td>Khác</td>
+                        <td class="text-lg-center"><input type="checkbox" /></td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </form>
+        
+    </div>
+    <div class="col-8">
+        <div>
+            <label class="text-primary font-weight-bold">Thông tin bệnh nhân</label>
+        </div>
+    </div>
+</div>

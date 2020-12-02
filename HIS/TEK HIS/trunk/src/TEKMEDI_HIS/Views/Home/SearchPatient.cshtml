@@ -1,0 +1,69 @@
+﻿
+@{
+    ViewData["Title"] = "Tìm kiếm bệnh nhân";
+}
+<h3 class="h3">@ViewData["Title"]</h3>
+@model TEKMEDI_HIS.Models.PatientResource
+@using Hl7.Fhir.Model;
+@using Hl7.Fhir.Rest;
+@using (Html.BeginForm())
+{
+<label>Chứng minh nhân dân</label>
+    @Html.TextBox("SearchString")
+<input type="submit" value="Tìm kiếm" class="btn btn-danger ml-1 mb-2" />
+
+<table class="table border border-dark">
+    <thead class="thead-dark">
+        <tr>
+            <th>Số CMND</th>
+            <th>Họ và tên</th>
+            <th>Giới tính</th>
+            <th>Ngày sinh</th>
+            <th>Trạng thái</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var pan = new Patient();
+            //The fhir server end point address
+            string ServiceRootUrl = "http://sqlonfhir-stu3.azurewebsites.net/fhir";
+            //Create a client to send to the server at a given endpoint.
+            var FhirClient = new FhirClient(ServiceRootUrl);
+            // increase timeouts since the server might be powered down
+            try
+            {
+                //Attempt to send the resource to the server endpoint
+                Bundle ReturnedSearchBundle = FhirClient.Search<Patient>(new string[] { "identifier=" + "289654412" });
+
+                foreach (var Entry in ReturnedSearchBundle.Entry)
+                {
+                    Patient p = (Patient)Entry.Resource;
+                    string patientName = p.Name.First().ToString();
+                    <tr>
+                        <td>@p.Identifier.First().Value</td>
+                        <td>@patientName.Replace(",", string.Empty)</td>
+                        <td>@p.Gender.Value</td>
+                        <td>@p.BirthDate</td>
+                        <td>@p.Active</td>
+                        <td><a class="text-success" href="#">Chi tiết</a></td>
+                        <td><a class="text-danger" href="#">Xoá</a></td>
+                    </tr>
+
+                }
+
+            }
+            catch (FhirOperationException FhirOpExec)
+            {
+
+
+            }
+            catch (Exception GeneralException)
+            {
+            }
+
+        }
+    </tbody>
+</table>
+}

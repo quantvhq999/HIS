@@ -1,0 +1,10 @@
+﻿
+@{
+    ViewData["Title"] = "Cập nhật thông tin";
+}
+<h3>Thông tin bệnh nhân</h3>
+@using (Html.BeginForm())
+{
+    @Html.TextBox("Search")
+    <input type="submit" value="Tìm kiếm" class="btn btn-danger ml-1 mb-2" />
+}
