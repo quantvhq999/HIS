@@ -16,7 +16,7 @@
         <form>
             <label class="text-primary font-weight-bold">DS. Bệnh nhân</label>
             <div class="form-group">
-                 
+
                 <label>Trạng thái</label>
                 <select class="form-control" id="selectSate">
                     <option>Chờ khám</option>
@@ -26,17 +26,24 @@
             </div>
             <div class="form-group">
                 <label for="Date">Ngày</label>
-                <input class="form-control" type="text" value="@DateTime.Now" />
+                <div class="form-group">
+                    <div class="input-group date" id="datePicker">
+                        <input type="text" class="form-control" name="date" value="">
+                        <span class="input-group-addon">
+                            <i class="glyphicon glyphicon-calendar"></i>
+                        </span>
+                    </div>
+                </div>
             </div>
-           
+
             <table class="table table-bordered">
-                <thead class="thead-dark font-weight-light" style="font-size:small">
+                <thead class="font-weight-light" style="font-size:small">
                     <tr>
                         <th>STT</th>
-                        <th>Họ tên</th>
-                        <th>N.S</th>
+                        <th>Họ và tên</th>
+                        <th>Ngày sinh</th>
                         <th>G. Tính</th>
-                        <th>Ư. Tiên</th>
+                        <th>Ưu Tiên</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -61,15 +68,134 @@
                         <td>Khác</td>
                         <td class="text-lg-center"><input type="checkbox" /></td>
                     </tr>
-                    
+
                 </tbody>
             </table>
         </form>
-        
+        <hr />
+        <label class="text-primary font-weight-bold">Toa mẫu</label>
+        <div class="list-group">
+            <a  class="list-group-item list-group-item-action">Toa BS a</a>
+            <a  class="list-group-item list-group-item-action">Toa BS Đức</a>
+            <a  class="list-group-item list-group-item-action">Toa tụt huyết áp</a>
+            <a  class="list-group-item list-group-item-action">Toa tăng huyết áp</a>
+            <a  class="list-group-item list-group-item-action">Toa mẫu 01</a>
+            <a  class="list-group-item list-group-item-action">Toa mẫu 02</a>
+        </div>
+        <hr />
+        <div>
+            <button class="btn btn-danger">Gọi lại</button>
+            <input class="" type="text"/>
+            <button class="btn btn-primary">Gọi</button>
+        </div>
     </div>
+
+    <!---Patient Information-->
     <div class="col-8">
         <div>
             <label class="text-primary font-weight-bold">Thông tin bệnh nhân</label>
+            <button class="btn btn-primary float-right">Chọn bệnh án</button>
         </div>
+        <form>
+            <div class="form-group">
+                <label for="patientIF">Thông tin bệnh nhân:</label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-describedby="basic-addon2">
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" type="button">Tìm kiếm</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="container m-0 p-0">
+            <div class="row">
+                <div class="col-sm-2">
+                    <div><label>Mã BN: </label></div>
+                    <div><label>Mã thẻ: </label></div>
+                </div>
+                <div class="col-sm">
+                    <div>
+                        <label>Họ tên: Trương Nguyễn Hồng Thị Quân</label>
+                        <label class="ml-2">Tuổi: 100</label>
+                    </div>
+                    <div>
+                        <label>Mức hưởng: </label>
+                    </div>
+                </div>
+                <div class="col-sm-2">
+                    <div><label>Giới tính: </label></div>
+                    <div><label>Số hồ sơ: </label></div>
+                </div>
+                <div class="col-sm">
+                    <div><label>Địa chỉ:28 Mai Chí Thọ, Phường An Phú, Quận 2, TP. HCM, Việt Nam, Trái Đất </label></div>
+                    <div>
+                        <label>Mã TN: </label>
+                        <label class="ml-">Mã BA:</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div>
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link active" id="nav-exam-tab" data-toggle="tab" href="#nav-exam" role="tab" aria-controls="nav-exam" aria-selected="true">Khám bệnh</a>
+                    <a class="nav-item nav-link" id="nav-medicine-tab" data-toggle="tab" href="#nav-medicine" role="tab" aria-controls="nav-medicine" aria-selected="false">Toa thuốc</a>
+                    <a class="nav-item nav-link" id="nav-allergy-tab" data-toggle="tab" href="#nav-allergy" role="tab" aria-controls="nav-allergy" aria-selected="false">Dị ứng, sinh hiệu, tiền sử bệnh</a>
+                    <a class="nav-item nav-link" id="nav-medical-history-tab" data-toggle="tab" href="#nav-medical-history" role="tab" aria-controls="nav-mmedical-history" aria-selected="false">Lịch sử bệnh án</a>
+                    <a class="nav-item nav-link" id="nav-hospitalize-tab" data-toggle="tab" href="#nav-hospitalize" role="tab" aria-controls="nav-hospitalize" aria-selected="false">Phiếu vào viện</a>
+                </div>
+            </nav>
+            <div class="tab-content mt-3" id="nav-tabContent">
+                <div class="tab-pane fade show active" id="nav-exam" role="tabpanel" aria-labelledby="nav-exam-tab">
+                    <form>
+                        <div class="form-check-inline">
+                            <label for="service">Dịch vụ</label>
+                            <div class="col">
+                                <input id="service" type="text" class="form-control">
+                            </div>
+                            <label for="doctor">Bác sĩ</label>
+                            <div class="col">
+                                <input id="doctor" type="text" class="form-control">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="tab-pane fade" id="nav-medicine" role="tabpanel" aria-labelledby="nav-medicine-tab">
+                    Thuốc
+                </div>
+                <div class="tab-pane fade" id="nav-allergy" role="tabpanel" aria-labelledby="nav-allergy-tab">
+                    Dị ứng
+                </div>
+                <div class="tab-pane fade" id="nav-medical-history" role="tabpanel" aria-labelledby="nav-medical-history-tab">
+                    Lịch sử
+                </div>
+                <div class="tab-pane fade" id="nav-hospitalize" role="tabpanel" aria-labelledby="nav-hospitalize-tab">
+                    Nhập viện
+                </div>
+            </div>
+        </div>
+        <hr />
+        <label class="font-weight-bold text-primary">ICD phụ</label>
+        <table class="table table-bordered" >
+            <thead>
+                <tr>
+                    <th>Mã</th>
+                    <th>Tên</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>J60</td>
+                    <td>Bệnh phổi ngành than</td>
+                </tr>
+            </tbody>
+        </table>
+        <form>
+            <div class="form-inline">
+                <label>Ghi chú</label>
+                <input class="form-control" type="text"/>
+            </div>
+        </form>
     </div>
 </div>
