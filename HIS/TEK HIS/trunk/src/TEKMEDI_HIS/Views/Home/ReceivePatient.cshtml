@@ -1,5 +1,683 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@{
+    ViewData["Title"] = "TIẾP NHẬN KHÁM BỆNH";
 }
+<h2>@ViewData["Title"]</h2>
+<hr class="bg-primary" />
+<h4 class="text-primary font-weight-bold">HÀNH CHÍNH</h4>
+<br />
+@model TEKMEDI_HIS.Models.PatientResource
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label for="mabenhnhan">Mã bệnh nhân</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="tenbenhnhan">Tên bệnh nhân</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label>Giới tính</label>
+                    <select asp-for="Gender" class="custom-select-sm, form-control">
+                        <option value="Male">Nam</option>
+                        <option value="Female">Nữ</option>
+                        <option value="Other">Khác</option>
+                        <option value="Unknown">Không xác định</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label>Ngày Sinh</label>
+                    <input asp-for="birthDay" type="date" class="form-control" />
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label for="cmnd">CMND/CCCD</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="dantoc">Dân tộc</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="sodt">Số điện thoại</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label for="Email">Email</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label>Quốc Gia</label>
+                    <select asp-for="Language" class="custom-select-sm, form-control">
+                        <option value="VI">Vietnamese</option>
+                        <option value="AF">Afrikaans</option>
+                        <option value="SQ">Albanian</option>
+                        <option value="AR">Arabic</option>
+                        <option value="HY">Armenian</option>
+                        <option value="EU">Basque</option>
+                        <option value="BN">Bengali</option>
+                        <option value="BG">Bulgarian</option>
+                        <option value="CA">Catalan</option>
+                        <option value="KM">Cambodian</option>
+                        <option value="ZH">Chinese (Mandarin)</option>
+                        <option value="HR">Croatian</option>
+                        <option value="CS">Czech</option>
+                        <option value="DA">Danish</option>
+                        <option value="NL">Dutch</option>
+                        <option value="EN">English</option>
+                        <option value="ET">Estonian</option>
+                        <option value="FJ">Fiji</option>
+                        <option value="FI">Finnish</option>
+                        <option value="FR">French</option>
+                        <option value="KA">Georgian</option>
+                        <option value="DE">German</option>
+                        <option value="EL">Greek</option>
+                        <option value="GU">Gujarati</option>
+                        <option value="HE">Hebrew</option>
+                        <option value="HI">Hindi</option>
+                        <option value="HU">Hungarian</option>
+                        <option value="IS">Icelandic</option>
+                        <option value="ID">Indonesian</option>
+                        <option value="GA">Irish</option>
+                        <option value="IT">Italian</option>
+                        <option value="JA">Japanese</option>
+                        <option value="JW">Javanese</option>
+                        <option value="KO">Korean</option>
+                        <option value="LA">Latin</option>
+                        <option value="LV">Latvian</option>
+                        <option value="LT">Lithuanian</option>
+                        <option value="MK">Macedonian</option>
+                        <option value="MS">Malay</option>
+                        <option value="ML">Malayalam</option>
+                        <option value="MT">Maltese</option>
+                        <option value="MI">Maori</option>
+                        <option value="MR">Marathi</option>
+                        <option value="MN">Mongolian</option>
+                        <option value="NE">Nepali</option>
+                        <option value="NO">Norwegian</option>
+                        <option value="FA">Persian</option>
+                        <option value="PL">Polish</option>
+                        <option value="PT">Portuguese</option>
+                        <option value="PA">Punjabi</option>
+                        <option value="QU">Quechua</option>
+                        <option value="RO">Romanian</option>
+                        <option value="RU">Russian</option>
+                        <option value="SM">Samoan</option>
+                        <option value="SR">Serbian</option>
+                        <option value="SK">Slovak</option>
+                        <option value="SL">Slovenian</option>
+                        <option value="ES">Spanish</option>
+                        <option value="SW">Swahili</option>
+                        <option value="SV">Swedish </option>
+                        <option value="TA">Tamil</option>
+                        <option value="TT">Tatar</option>
+                        <option value="TE">Telugu</option>
+                        <option value="TH">Thai</option>
+                        <option value="BO">Tibetan</option>
+                        <option value="TO">Tonga</option>
+                        <option value="TR">Turkish</option>
+                        <option value="UK">Ukrainian</option>
+                        <option value="UR">Urdu</option>
+                        <option value="UZ">Uzbek</option>
+                        <option value="CY">Welsh</option>
+                        <option value="XH">Xhosa</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label for="diachi">Địa chỉ</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="nghenghiep">Nghề nghiệp</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="cty">C.Ty/Nơi làm việc</label>
+                    <input type="text" class="form-control">
+                </div>
+
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label for="thannhan">Thân nhân</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="sdtthannhan">Số điện thoại</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="dcthannhan">Địa chỉ thân nhân</label>
+                    <input type="text" class="form-control">
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+    /*
+    <label>Mã bệnh nhân</label>
+    <input type="text" />
+
+    <label class="ml-xl-5">Bệnh nhân</label>
+    <input type="text" />
+
+    <label class="ml-xl-5">Giới tính</label>
+    <select asp-for="Gender" class="custom-select-sm">
+        <option value="Male">Nam</option>
+        <option value="Female">Nữ</option>
+        <option value="Other">Khác</option>
+        <option value="Unknown">Không xác định</option>
+    </select>
+
+    <label class="ml-xl-5">Ngày Sinh</label>
+    <input asp-for="birthDay" type="date" />
+    <br />
+
+    <label>CMND/CCCD</label>
+    <input type="text" />
+    <label class="ml-xl-5">Dân tộc</label>
+    <input type="text" />
+    <label class="ml-xl-5">Số điện thoại</label>
+    <input type="text" />
+    <label class="ml-xl-5">Email</label>
+    <input type="email" />
+    <label class="ml-xl-5">Quốc Gia</label>
+    <select asp-for="Language" class="custom-select-sm">
+        <option value="VI">Vietnamese</option>
+        <option value="AF">Afrikaans</option>
+        <option value="SQ">Albanian</option>
+        <option value="AR">Arabic</option>
+        <option value="HY">Armenian</option>
+        <option value="EU">Basque</option>
+        <option value="BN">Bengali</option>
+        <option value="BG">Bulgarian</option>
+        <option value="CA">Catalan</option>
+        <option value="KM">Cambodian</option>
+        <option value="ZH">Chinese (Mandarin)</option>
+        <option value="HR">Croatian</option>
+        <option value="CS">Czech</option>
+        <option value="DA">Danish</option>
+        <option value="NL">Dutch</option>
+        <option value="EN">English</option>
+        <option value="ET">Estonian</option>
+        <option value="FJ">Fiji</option>
+        <option value="FI">Finnish</option>
+        <option value="FR">French</option>
+        <option value="KA">Georgian</option>
+        <option value="DE">German</option>
+        <option value="EL">Greek</option>
+        <option value="GU">Gujarati</option>
+        <option value="HE">Hebrew</option>
+        <option value="HI">Hindi</option>
+        <option value="HU">Hungarian</option>
+        <option value="IS">Icelandic</option>
+        <option value="ID">Indonesian</option>
+        <option value="GA">Irish</option>
+        <option value="IT">Italian</option>
+        <option value="JA">Japanese</option>
+        <option value="JW">Javanese</option>
+        <option value="KO">Korean</option>
+        <option value="LA">Latin</option>
+        <option value="LV">Latvian</option>
+        <option value="LT">Lithuanian</option>
+        <option value="MK">Macedonian</option>
+        <option value="MS">Malay</option>
+        <option value="ML">Malayalam</option>
+        <option value="MT">Maltese</option>
+        <option value="MI">Maori</option>
+        <option value="MR">Marathi</option>
+        <option value="MN">Mongolian</option>
+        <option value="NE">Nepali</option>
+        <option value="NO">Norwegian</option>
+        <option value="FA">Persian</option>
+        <option value="PL">Polish</option>
+        <option value="PT">Portuguese</option>
+        <option value="PA">Punjabi</option>
+        <option value="QU">Quechua</option>
+        <option value="RO">Romanian</option>
+        <option value="RU">Russian</option>
+        <option value="SM">Samoan</option>
+        <option value="SR">Serbian</option>
+        <option value="SK">Slovak</option>
+        <option value="SL">Slovenian</option>
+        <option value="ES">Spanish</option>
+        <option value="SW">Swahili</option>
+        <option value="SV">Swedish </option>
+        <option value="TA">Tamil</option>
+        <option value="TT">Tatar</option>
+        <option value="TE">Telugu</option>
+        <option value="TH">Thai</option>
+        <option value="BO">Tibetan</option>
+        <option value="TO">Tonga</option>
+        <option value="TR">Turkish</option>
+        <option value="UK">Ukrainian</option>
+        <option value="UR">Urdu</option>
+        <option value="UZ">Uzbek</option>
+        <option value="CY">Welsh</option>
+        <option value="XH">Xhosa</option>
+    </select>
+    */
+    <hr class="bg-primary" />
+
+    <h4 class="text-primary font-weight-bold">THÔNG TIN ĐĂNG KÝ KHÁM BỆNH</h4>
+    <br />
+
+    <div class="row">
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label>Ngày tiếp nhận</label>
+                    <input type="text" class="form-control" value="@DateTime.Now" />
+                </div>
+                <div class="col">
+                    <label>Số thứ tự</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col">
+                    <label>Mã Tiếp Nhận</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label>Q.Lợi/Thẻ BHYT</label>
+                    <select class="custom-select-sm, form-control">
+                        <option value="thuphi">Thu Phí</option>
+                        <option value="bhytdn">Thẻ BHYT</option>
+                    </select>
+                </div>
+                <div class="col">
+                    <label>.</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col">
+                    <label>Nơi ĐK KCBBD</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="col">
+                    <label>Giá trị</label>
+                    <input type="text" class="form-control" />
+                </div>
+            </div>
+        </div>
+    </div>
+    /*
+        <label>Ngày tiếp nhận</label>
+        <input type="text" value="@DateTime.Now" />
+        <label class="ml-xl-5">Số thứ tự</label>
+        <input type="text" />
+        <label class="ml-xl-5">Mã Tiếp Nhận</label>
+        <input type="text" />
+        <br />
+
+        <label>Q.Lợi/Thẻ BHYT</label>
+        <select class="custom-select-sm">
+            <option value="thuphi">Thu Phí</option>
+            <option value="bhytdn">Thẻ BHYT</option>
+        </select>
+        <input type="text" />
+        <label class="ml-xl-5">Nơi ĐK KCBBD</label>
+        <input type="text" />
+        <label class="ml-xl-5">Giá trị</label>
+        <input type="text" />
+        <br />
+
+
+    */
+    <div class="row">
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label>Tuyến/Loại</label>
+                    <select class="custom-select-sm, form-control">
+                        <option value="ABM">Ambulatory</option>
+                        <option value="EMER">Emergency</option>
+                        <option value="FLD">Field</option>
+                        <option value="HH">Home Health</option>
+                        <option value="IPM">Inpatient Encounter</option>
+                        <option value="ACUTE">Inpatient Acute</option>
+                        <option value="NONAC">Inpatient Non-Acute</option>
+                        <option value="OBSENC">OBSENC</option>
+                        <option value="PRENC">Pre-Admission</option>
+                        <option value="SS">Short Stay</option>
+                        <option value="VR">Virtual</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label>. </label>
+                    <select class="custom-select-sm, form-control">
+                        <option value="tiepnhanmoi">Tiếp nhận mới</option>
+                        <option value="taikham">Tái khám</option>
+                    </select>
+
+                </div>
+                <div class="col">
+                    <label>Mức hưởng (%)</label>
+                    <input type="text" class="form-control" />
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">5 năm 6 tháng</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label>Phòng Khám</label>
+                    <select class="custom-select-sm, form-control">
+                        <option value="kn">Khoa nội</option>
+                        <option value="kng">Khoa ngoại</option>
+                    </select>
+                </div>
+
+                <div class="col">
+                    <label>Dịch vụ khám</label>
+                    <select class="custom-select-sm, form-control">
+                        <option value="56">Health Information/Referral</option>
+                        <option value="60">Nutrition</option>
+                        <option value="117">Emergency Medical</option>
+                        <option value="125">Accommodation Placement/Support</option>
+                    </select>
+
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                    <label class="form-check-label" for="inlineCheckbox1">Mua sổ KB</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                    <label class="form-check-label" for="inlineCheckbox2">BN được ưu tiên</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    /*
+    <label>Tuyến/Loại</label>
+    <select class="custom-select-sm">
+        <option value="ABM">Ambulatory</option>
+        <option value="EMER">Emergency</option>
+        <option value="FLD">Field</option>
+        <option value="HH">Home Health</option>
+        <option value="IPM">Inpatient Encounter</option>
+        <option value="ACUTE">Inpatient Acute</option>
+        <option value="NONAC">Inpatient Non-Acute</option>
+        <option value="OBSENC">OBSENC</option>
+        <option value="PRENC">Pre-Admission</option>
+        <option value="SS">Short Stay</option>
+        <option value="VR">Virtual</option>
+    </select>
+    <select class="custom-select-sm">
+        <option value="tiepnhanmoi">Tiếp nhận mới</option>
+        <option value="taikham">Tái khám</option>
+    </select>
+
+    <label class="ml-xl-5">Mức hưởng (%)</label>
+    <input type="text" />
+
+    <label class="ml-xl-5"> 5 năm 6 tháng</label>
+    <input type="checkbox" />*/
+    <br />
+    <label> Số C.Tuyến</label>
+    <input type="text" />
+    <br />
+    <label> ICD T.Trước</label>
+    <input type="text" />
+    <br />
+    /*
+    <label>Phòng Khám</label>
+    <select class="custom-select-sm">
+        <option value="kn">Khoa nội</option>
+        <option value="kng">Khoa ngoại</option>
+    </select>
+    <label class="ml-xl-5">Dịch vụ khám</label>
+    <select class="custom-select-sm">
+        <option value="56">Health Information/Referral</option>
+        <option value="60">Nutrition</option>
+        <option value="117">Emergency Medical</option>
+        <option value="125">Accommodation Placement/Support</option>
+    </select>
+
+    <input type="checkbox" class="ml-xl-5" />
+    <label>Mua sổ KB</label>
+    <input type="checkbox" />
+    <label>BN được ưu tiên</label>
+    <br />
+    */
+
+    <button class="btn btn-info" type="submit">Nhập thẻ BHYT</button>
+    <button class="btn btn-outline-dark" type="submit">In STT Khám</button>
+    <button class="btn btn-danger" type="submit">In Tem</button>
+    <button class="btn btn" type="submit">KT Thông tuyến</button>
+    <button class="btn btn-warning" type="submit">Chỉ định Dịch vụ</button>
+    <button class="btn btn-success" type="submit">Nhập mới</button>
+    <button class="btn btn-primary" type="submit">Lưu</button>
+
+    <hr class="bg-primary" />
+    <div class="container">
+        <h4 class="text-primary font-weight-bold">BẢNG THỐNG KÊ</h4>
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Thống kê theo phòng khám</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Thống kê theo khu khám</a>
+
+            </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+                <table class="table table-sm, table-hover, table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Phòng Khám</th>
+                            <th scope="col">Tổng Số</th>
+                            <th scope="col">BHYT</th>
+                            <th scope="col">Ưu tiên</th>
+                            <th scope="col">Đã khám</th>
+                            <th scope="col">Chưa khám</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Nội tổng quát</td>
+                            <td>15</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>12</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Ngoại khoa</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Phòng cấp cứu </td>
+                            <td>12</td>
+                            <td>1</td>
+                            <td>6</td>
+                            <td>5</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <table class="table table-sm, table-hover, table-bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Khu khám</th>
+                            <th scope="col">Tổng Số</th>
+                            <th scope="col">BHYT</th>
+                            <th scope="col">Ưu tiên</th>
+                            <th scope="col">Đã khám</th>
+                            <th scope="col">Chưa khám</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <td>Khu A</td>
+                            <td>15</td>
+                            <td>5</td>
+                            <td>1</td>
+                            <td>12</td>
+                            <td>3</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <td>Khu B</td>
+                            <td>5</td>
+                            <td>6</td>
+                            <td>2</td>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">3</th>
+                            <td>Khu C </td>
+                            <td>12</td>
+                            <td>1</td>
+                            <td>6</td>
+                            <td>5</td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+    </div>
+    <br />
+
+    <label>STT</label>
+    <input type="text" />
+    <button class="btn btn-primary" type="submit">Gọi</button>
+    <button class="btn btn-info" type="submit">Gọi lại</button>
+    <button class="btn btn-danger" type="submit">Chụp hình</button>
+    <button class="btn btn-success" type="submit">Thống kê KB</button>
+    <hr class="bg-primary" />
+
+    /*<div class="container">
+        <div class="row">
+            <div class="col-6">
+                <label>Mã bệnh nhân</label>
+                <input type="text" />
+
+                <label>Bệnh nhân</label>
+                <input type="text" />
+            </div>
+            <div class="col-6">
+                <label class="ml-xl-5">Giới tính</label>
+                <select asp-for="Gender" class="custom-select-sm">
+                    <option value="Male">Nam</option>
+                    <option value="Female">Nữ</option>
+                    <option value="Other">Khác</option>
+                    <option value="Unknown">Không xác định</option>
+                </select>
+
+                <label class="ml-xl-5">Ngày Sinh</label>
+                <input asp-for="birthDay" type="date" />
+            </div>
+        </div>
+    </div>
+    */
+    /*
+    <div class="row">
+        <div class="col-6">
+            <div class="form-row">
+                <div class="col">
+                    <label for="inputEmail4">Mã bệnh nhân</label>
+                    <input type="text" class="form-control">
+                </div>
+                <div class="col">
+                    <label for="inputEmail4">Tên bệnh nhân</label>
+                    <input type="text" class="form-control">
+                </div>
+            </div>
+
+        </div>
+        <div class="col-6">
+            <label>Giới tính</label>
+            <select asp-for="Gender" class="custom-select-sm">
+                <option value="Male">Nam</option>
+                <option value="Female">Nữ</option>
+                <option value="Other">Khác</option>
+                <option value="Unknown">Không xác định</option>
+            </select>
+
+            <label class="ml-xl-5">Ngày Sinh</label>
+            <input asp-for="birthDay" type="date" />
+        </div>
+    </div>
+    */
+    /*
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Home</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Profile</a>
+            <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Contact</a>
+        </div>
+    </nav>
+    <div class="tab-content" id="nav-tabContent">
+        <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">...</div>
+        <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">...</div>
+        <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">...</div>
+    </div>
+    */
+    <div class="btn-group btn-group-justified ">
+        <a href="#" class="btn btn-primary">Apple</a>
+        <a href="#" class="btn btn-primary">Samsung</a>
+        <a href="#" class="btn btn-primary">Sony</a>
+    </div>
+
+}
+
+
